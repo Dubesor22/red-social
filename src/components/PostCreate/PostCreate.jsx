@@ -27,22 +27,7 @@ function PostCreate() {
     setImage("");
   };
 
-  // const uploadImage = async (e) => {
-  //   const files = e.target.files;
-  //   const data = new FormData();
-  //   data.append("file", files[0]);
-  //   data.append("upload_preset", "react-posts");
-  //   setLoading(true);
-  //   const res = await fetch("https://localhost:8080/posts/", {
-  //     method: "POST",
-  //     body: data,
-  //   });
-  //   const file = await res.json();
-  //   // const file = postCreate(data);
-  //   setImage(file.secure_url);
-  //   setLoading(false);
-  // };
-
+  
   return (
     <>
       <form onSubmit={handleSubmit} className="panel-activity__status">

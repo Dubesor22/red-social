@@ -8,7 +8,7 @@ import Header from "../Header/Header";
 import Posts from "./Posts/Posts";
 import PostCreate from "../PostCreate/PostCreate";
 
-const API = "http://localhost:8080/users/";
+const API = "http://stratos-backend.herokuapp.com/users/";
 
 const Feed = () => {
   const dispatch = useDispatch();
