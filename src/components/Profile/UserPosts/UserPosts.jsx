@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { deletePost } from "../../../features/posts/PostsSlice";
 import "./UserPosts.scss";
 
-const API = "https://stratos-backend.herokuapp.com/users/";
+
 
 function UserPosts() {
   const dispatch = useDispatch();

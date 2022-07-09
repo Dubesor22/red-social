@@ -15,7 +15,7 @@ import {
 } from "@ant-design/icons";
 import EditModal from "./EditModal";
 
-const API = "https://stratos-backend.herokuapp.com/users/";
+const API_URL = "http://localhost:8080/users/";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -36,7 +36,7 @@ const Post = () => {
           <i className="activity__list__icon fa fa-question-circle-o"></i>
           <div className="activity__list__header">
             <Link to="/profile">
-              <img src={API + post.userId.avatar} alt="avatar" />
+              <img src={API_URL + post.userId.avatar} alt="avatar" />
             </Link>
             <a href="#">{post.userId?.username}</a> Ha posteado:{" "}
             <div className="post" key={post._id}>

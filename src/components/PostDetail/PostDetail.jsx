@@ -6,7 +6,7 @@ import { logout } from "../../features/auth/authSlice";
 import { Card } from "antd";
 import "./PostDetail.scss";
 
-const API = "https://stratos-backend.herokuapp.com/users/";
+const API_URL = "http://localhost:8080/users/";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -31,7 +31,7 @@ const PostDetail = () => {
           <div className="panel profile-cover">
             <Link to="/profile">
               <div className="profile-cover__img">
-                <img src={API + user.avatar} alt="avatar" />
+                <img src={API_URL + user.avatar} alt="avatar" />
                 <h3 className="h3">{user.username}</h3>
               </div>
             </Link>

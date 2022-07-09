@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../features/auth/authSlice";
 import { notification } from "antd";
 import "../Feed/Feed.scss";
-const API = "https://stratos-backend.herokuapp.com/users/";
+const API_URL = "http://localhost:8080/users/";
 
 function Header() {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function Header() {
           <div className="panel profile-cover">
             <Link to="/profile">
               <div className="profile-cover__img">
-                <img src={API + user.avatar} alt="avatar" />
+                <img src={API_URL + user.avatar} alt="avatar" />
                 <h3 className="h3">{user.username}</h3>
               </div>
             </Link>
