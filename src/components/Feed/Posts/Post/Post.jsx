@@ -11,9 +11,11 @@ import {
   HeartOutlined,
   HeartFilled,
   // DeleteOutlined,
+  CommentOutlined,
   EditOutlined,
 } from "@ant-design/icons";
 import EditModal from "./EditModal";
+import CommentModal from "./CommentModal";
 
 const API_URL = "http://localhost:8080/users/";
 
@@ -22,11 +24,18 @@ const Post = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isCommentModalVisible, setIsCommentModalVisible] = useState(false);
 
   const handleModal = (id) => {
     dispatch(getById(id));
     setIsModalVisible(true);
   };
+
+  const handleComentModal = (id) => {
+    console.log(id);
+    setIsCommentModalVisible(true);
+  }
+
 
   const post = posts?.map((post) => {
     const isAlreadyLiked = post.likes?.includes(user?.user._id);
@@ -51,6 +60,8 @@ const Post = () => {
                 </Link>
               </div>
             </blockquote>
+            <p className="comment-section">Commentarios:</p>
+              <i className="comment-body">{post.comments?.body}</i>
           </div>
           <div className="activity__list__footer">
             <span className="like">
@@ -64,7 +75,8 @@ const Post = () => {
             </span>
             <span>
               {" "}
-              <i className="fa fa-comments"></i>
+              {/* <i className="fa fa-comments"></i> */}
+              <CommentOutlined onClick={() => handleComentModal(post._id)} />
               {post.comments?.length}
             </span>
             <EditOutlined onClick={() => handleModal(post._id)} />
@@ -92,6 +104,7 @@ const Post = () => {
     <div>
       {post}
       <EditModal visible={isModalVisible} setVisible={setIsModalVisible} />
+      <CommentModal visible={isCommentModalVisible} setVisible={setIsCommentModalVisible} />
     </div>
   );
 };
