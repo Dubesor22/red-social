@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+
+import "./Users.scss";
+import { notification } from "antd";
+import User from "./User/User";
 
 function Users() {
   return (
-    <div>
-      <h1>Lista usuarios</h1>
+    <div className="container users-list">
+      <br />
+      <h2>usuarios</h2>
+      <hr />
+      <br />
+      <ul>
+        <User />
+      </ul>
     </div>
-  )
+  );
 }
 
-export default Users
+export default Users;

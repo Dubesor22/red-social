@@ -34,11 +34,10 @@ const Feed = () => {
     <>
 
       <Header />
-
-  <div className="container outside column"> 
+  <div className="container-fluid outside column"> 
   <Users/>   
     <div class="col-12">
-      <div className="col-lg-8 container-fluid">
+      <div className="col-lg-12 container">
           <div className="panel">
             <div className="panel-heading">
               <h3 className="panel-title">Actividad</h3>

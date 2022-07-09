@@ -15,13 +15,17 @@ Link {
   -o-animation: fadeIn 1 1s ease-out;
   animation: fadeIn 1 1s ease-out;
   overflow: hidden;
+  display: grid;
+   
+
 }
 
 .column {
   display: grid;
-  grid-template-columns: 5em auto 5em
-
+  grid-template-columns: 2fr 5fr 2fr
 }
+
+
 
   // .sider {
   //   flex-wrap: wrap;
