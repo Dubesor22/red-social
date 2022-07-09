@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePostAdmin } from "../../features/posts/PostsSlice";
 import "./PostAdmin.scss";
 
-const API_URL = "http://stratos-backend.herokuapp.com/users/";
+const API_URL = "https://stratos-backend.herokuapp.com/users/";
 const PostAdmin = () => {
   const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import { logout } from "../../features/auth/authSlice";
 import { Card } from "antd";
 import "./PostDetail.scss";
 
-const API = "http://stratos-backend.herokuapp.com/users/";
+const API = "https://stratos-backend.herokuapp.com/users/";
 
 const PostDetail = () => {
   const { _id } = useParams();

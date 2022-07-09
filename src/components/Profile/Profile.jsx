@@ -5,7 +5,7 @@ import UserPosts from "./UserPosts/UserPosts";
 import { getUserById } from "../../features/auth/authSlice";
 import Header from "../Header/Header";
 
-const URL = "http://stratos-backend.herokuapp.com/users/";
+const URL = "https://stratos-backend.herokuapp.com/users/";
 
 const Profile = () => {
   const dispatch = useDispatch();

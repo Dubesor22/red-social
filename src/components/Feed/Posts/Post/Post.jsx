@@ -15,7 +15,7 @@ import {
 } from "@ant-design/icons";
 import EditModal from "./EditModal";
 
-const API = "http://stratos-backend.herokuapp.com/users/";
+const API = "https://stratos-backend.herokuapp.com/users/";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
