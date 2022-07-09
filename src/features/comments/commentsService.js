@@ -7,9 +7,8 @@ const commentCreate = async(comment) => {
   const res = await axios.post(API_URL + "/comments", comment, {
     headers: {
       authorization: user?.token,
-    },
+    },    
   });
-
   return res.data;
 }
 

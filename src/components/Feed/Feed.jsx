@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { logout } from "../../features/auth/authSlice";
-import { notification } from "antd";
+import { notification, Sider, Layout, Content } from "antd";
 import "./Feed.scss";
 import Header from "../Header/Header";
 import Posts from "./Posts/Posts";
 import PostCreate from "../PostCreate/PostCreate";
+import Users from "../Users/Users";
 
 
 const Feed = () => {
@@ -31,9 +32,13 @@ const Feed = () => {
 
   return (
     <>
+
       <Header />
-      <div className="container outside">
-        <div className="col-lg-8 container-fluid">
+
+  <div className="container outside column"> 
+  <Users/>   
+    <div class="col-12">
+      <div className="col-lg-8 container-fluid">
           <div className="panel">
             <div className="panel-heading">
               <h3 className="panel-title">Actividad</h3>
@@ -108,7 +113,8 @@ const Feed = () => {
             </div>
           </div>
         </div>
-      </div>
+       </div>
+      </div>  
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postCreate } from "../../features/posts/PostsSlice";
 import "./PostCreate.scss";

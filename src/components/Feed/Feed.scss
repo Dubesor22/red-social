@@ -17,6 +17,19 @@ Link {
   overflow: hidden;
 }
 
+.column {
+  display: grid;
+  grid-template-columns: 5em auto 5em
+
+}
+
+  // .sider {
+  //   flex-wrap: wrap;
+  //   margin-left: 2em;
+  //   margin-right: -16em;
+  //   background-color: #fff;
+  // }
+
 .post-body {
   color: #000;
   text-decoration: none;
