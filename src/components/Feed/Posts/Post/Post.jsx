@@ -17,7 +17,6 @@ import {
 import EditModal from "./EditModal";
 import CommentCreate from "../../../CommentCreate/CommentCreate";
 
-
 const API_URL = "http://localhost:8080/users/";
 
 const Post = () => {
@@ -25,13 +24,11 @@ const Post = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  
 
   const handleModal = (id) => {
     dispatch(getById(id));
     setIsModalVisible(true);
   };
-
 
   const post = posts?.map((post) => {
     const isAlreadyLiked = post.likes?.includes(user?.user._id);
@@ -57,7 +54,7 @@ const Post = () => {
               </div>
             </blockquote>
             <p className="comment-section">Commentarios:</p>
-              <i className="comment-body">{post.comments?.body}</i>
+            <i className="comment-body">{post.comments?.body}</i>
           </div>
           <div className="activity__list__footer">
             <span className="like">
@@ -71,7 +68,6 @@ const Post = () => {
             </span>
             <span>
               {" "}
-              {/* <i className="fa fa-comments"></i> */}
               <CommentOutlined />
               {post.comments?.length}
             </span>
@@ -94,8 +90,8 @@ const Post = () => {
           </div>
         </li>
         <p></p>
-        <CommentCreate/>
-        <hr/>
+        <CommentCreate />
+        <hr />
       </>
     );
   });

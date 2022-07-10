@@ -7,7 +7,6 @@ const getUsers = async () => {
   return res.data;
 };
 
-
 const getUsersByName = async (name) => {
   const res = await axios.get(API_URL + "/users/searchByName/" + name);
   return res.data;
@@ -15,14 +14,12 @@ const getUsersByName = async (name) => {
 
 const deleteUsers = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.delete(API_URL + "/users/id/" + _id,
-  {
+  const res = await axios.delete(API_URL + "/users/id/" + _id, {
     headers: {
       authorization: user?.token,
     },
-  }
-);
-return res.data;
+  });
+  return res.data;
 };
 
 const follow = async (_id) => {
@@ -53,7 +50,6 @@ const unfollow = async (_id) => {
   return res.data;
 };
 
-
 // const updateUsers = async (data) => {
 //   const user = JSON.parse(localStorage.getItem("user"));
 //   const res = await axios.put(API_URL + "/users/" , data,
@@ -67,18 +63,15 @@ const unfollow = async (_id) => {
 // return res.data
 // }
 
-// const getUsersById = async (_id) => {
-//   const user = JSON.parse(localStorage.getItem("user"));
-//   const res = await axios.get(API_URL + "/users/id/" + _id,
-//   {
-//     headers: {
-//       authorization: user?.token,
-//     },
-//   }
-// );
-// return res.data
-// }
-
+const getUsersById = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/users/id/" + _id, {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
 
 const usersService = {
   getUsers,
@@ -87,7 +80,7 @@ const usersService = {
   getUsersByName,
   deleteUsers,
   // updateUsers,
-  // getUsersById
+  getUsersById,
 };
 
 export default usersService;

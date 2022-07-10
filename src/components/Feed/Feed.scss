@@ -16,23 +16,23 @@ Link {
   animation: fadeIn 1 1s ease-out;
   overflow: hidden;
   display: grid;
-   
+}
 
+.search {
+  border: none;
 }
 
 .column {
   display: grid;
-  grid-template-columns: 2fr 5fr 2fr
+  grid-template-columns: 2fr 5fr 2fr;
 }
 
-
-
-  // .sider {
-  //   flex-wrap: wrap;
-  //   margin-left: 2em;
-  //   margin-right: -16em;
-  //   background-color: #fff;
-  // }
+// .sider {
+//   flex-wrap: wrap;
+//   margin-left: 2em;
+//   margin-right: -16em;
+//   background-color: #fff;
+// }
 
 .post-body {
   color: #000;
@@ -171,6 +171,7 @@ Link {
 
 .search-box {
   margin-left: 5px;
+  border-radius: 5px;
 }
 
 .panel-heading {

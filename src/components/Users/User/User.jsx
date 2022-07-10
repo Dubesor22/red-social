@@ -1,46 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUsers, follow, unfollow } from "../../../features/users/usersSlice";
 
 const API_URL = "http://localhost:8080/users/";
+
 function User() {
   const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.users);
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getUsers());
-  }, []);
+  }, [users]);
 
-  const { users } = useSelector((state) => state.users);
-  return (
-    <>
-      {users.map((user) => (
+  const allUsers = users?.map((el) => {
+    const isAlreadyFollowed = el.followers?.includes(user?.user?._id);
+    return (
+      <>
         <div className="activity__list__header">
-          <div className="user-follow" key={user._id}>
+          <div className="user-follow" key={el._id}>
             <div>
-              {console.log(user)}
-              <Link to={`/profile/${user._id}`}>
-                <img src={API_URL + user.avatar}></img>
-                {user.username}
+              <Link to={`/profile/${el._id}`}>
+                <img src={API_URL + el.avatar}></img>
+                {el.username}
               </Link>
             </div>
             <div>
-              <button
-                className="btn btn-primary"
-                type="primary"
-                onClick={() => dispatch(follow(user._id))}
-              >
-                Seguir
-              </button>
+              {isAlreadyFollowed ? (
+                <button
+                  className="btn btn-outline-warning"
+                  onClick={() => dispatch(unfollow(el._id))}
+                >
+                  Unfollow
+                </button>
+              ) : (
+                <button
+                  className="btn btn-outline-primary"
+                  onClick={() => dispatch(follow(el._id))}
+                >
+                  Follow
+                </button>
+              )}
             </div>
           </div>
 
           <br />
           <hr />
         </div>
-      ))}
-    </>
-  );
+      </>
+    );
+  });
+  return <>{allUsers}</>;
 }
 
 export default User;

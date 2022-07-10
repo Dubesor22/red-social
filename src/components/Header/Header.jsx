@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { logout } from "../../features/auth/authSlice";
+import { logout, getUserById } from "../../features/auth/authSlice";
 import { notification } from "antd";
 import "../Feed/Feed.scss";
 const API_URL = "http://localhost:8080/users/";
@@ -21,6 +21,10 @@ function Header() {
     navigate("/feed");
   };
 
+  useEffect(() => {
+    dispatch(getUserById(user._id));
+  }, [user]);
+
   return (
     <>
       <div className="container outside">
@@ -33,8 +37,8 @@ function Header() {
               </div>
             </Link>
             <div className="profile-cover__action bg--img" data-overlay="0.3">
-              <button className="btn btn-rounded btn-info">
-                <span onClick={goHome}>Home</span>
+              <button onClick={goHome} className="btn btn-rounded btn-info">
+                Home
               </button>
               {user.role === "admin" ? (
                 <button
@@ -51,8 +55,8 @@ function Header() {
                   <span>Profile</span>
                 </button>
               )}
-              <button className="btn btn-rounded btn-info">
-                <span onClick={onLogout}>Salir</span>
+              <button onClick={onLogout} className="btn btn-rounded btn-info">
+                Salir
               </button>
             </div>
             <div className="profile-cover__info">
@@ -64,7 +68,7 @@ function Header() {
                   <strong>{user.followers.length}</strong>Seguidores
                 </li>
                 <li>
-                  <strong>0</strong>Siguiendo
+                  <strong>{user?.following.length} </strong>Siguiendo
                 </li>
               </ul>
             </div>

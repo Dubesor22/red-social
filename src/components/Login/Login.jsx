@@ -46,11 +46,12 @@ const Login = () => {
     dispatch(reset());
   }, [isError, isSuccess, message]);
 
-  // if (user) {
-  //   setTimeout(() => {
+  // useEffect(() => {
+  //   if (user) {
+  //     console.log("user is already logged in");
   //     navigate("/feed");
-  //   }, 2000);
-  // }
+  //   }
+  // }, []);
 
   return (
     <div className="outside">

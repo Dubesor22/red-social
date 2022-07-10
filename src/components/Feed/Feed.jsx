@@ -9,14 +9,13 @@ import Posts from "./Posts/Posts";
 import PostCreate from "../PostCreate/PostCreate";
 import Users from "../Users/Users";
 
-
 const Feed = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth.user);
   const [text, setText] = useState("");
 
-  console.log(user);
+  // console.log(user);
   const handleChange = (e) => {
     setText(e.target.value);
     if (e.key === "Enter") {
@@ -24,96 +23,36 @@ const Feed = () => {
     }
   };
 
-  const onLogout = () => {
-    dispatch(logout());
-    notification.success({ message: "Hasta la proxima!" });
-    navigate("/login");
-  };
-
   return (
     <>
-
       <Header />
-  <div className="container-fluid outside column"> 
-  <Users/>   
-    <div class="col-12">
-      <div className="col-lg-12 container">
-          <div className="panel">
-            <div className="panel-heading">
-              <h3 className="panel-title">Actividad</h3>
-              <div>
-                <i className="fa fa-search" aria-hidden="true"></i>
-                <input
-                  className="search-box"
-                  onKeyUp={handleChange}
-                  placeholder="search post"
-                  name="text"
-                />
+      <div className="container-fluid outside column">
+        <Users />
+        <div class="col-12">
+          <div className="col-lg-12 container">
+            <div className="panel">
+              <div className="panel-heading">
+                <h3 className="panel-title">Actividad</h3>
+                <div>
+                  <i className="fa fa-search" aria-hidden="true"></i>
+                  <input
+                    className="search-box"
+                    onKeyUp={handleChange}
+                    placeholder="search post"
+                    name="text"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="panel-content panel-activity">
-              <PostCreate />
-              <ul className="panel-activity__list">
-                <Posts />
-                <li>
-                  <i className="activity__list__icon fa fa-image"></i>
-                  <div className="activity__list__header">
-                    <img
-                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                      alt="avatar"
-                    />
-                    <a href="#">{user.username}</a> Uploaded 4 Image:{" "}
-                    <a href="#">Mis colegas de la ofi:</a>
-                  </div>
-                  <div className="activity__list__body entry-content">
-                    <ul className="gallery">
-                      <li>
-                        <img
-                          src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                          alt="img"
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                          alt="img"
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                          alt="img"
-                        />
-                      </li>
-                      <li>
-                        <img
-                          src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                          alt="img"
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="activity__list__footer">
-                    <a href="#">
-                      {" "}
-                      <i className="fa fa-thumbs-up"></i>123
-                    </a>
-                    <a href="#">
-                      {" "}
-                      <i className="fa fa-comments"></i>23
-                    </a>
-                    <span>
-                      {" "}
-                      <i className="fa fa-clock"></i>hace 2 horas
-                    </span>
-                  </div>
-                </li>
-              </ul>
+              <div className="panel-content panel-activity">
+                <PostCreate />
+                <ul className="panel-activity__list">
+                  <Posts />
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-       </div>
-      </div>  
+      </div>
     </>
   );
 };
