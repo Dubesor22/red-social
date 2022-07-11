@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { commentCreate } from "../../features/comments/commentsSlice";
-import { getAll } from "../../features/posts/PostsSlice";
+import { getAll, reset } from "../../features/posts/PostsSlice";
 import "../PostCreate/PostCreate.scss";
 
 function CommentCreate(props) {
@@ -17,10 +17,9 @@ function CommentCreate(props) {
       body,
       postId: props.postId,
     };
-    setLoading(true);
     await dispatch(commentCreate(postData));
     dispatch(getAll());
-    setLoading(false);
+    dispatch(reset());
     setBody("");
   };
 
