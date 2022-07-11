@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080"
+const API_URL = "http://localhost:8080";
 
 const register = async (userdata) => {
   const res = await axios.post(API_URL + "/users", userdata);
@@ -39,12 +39,59 @@ const logout = async () => {
   }
   return res.data;
 };
+const follow = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(
+    API_URL + "/users/follow/" + _id,
+    {},
+    {
+      headers: {
+        authorization: user?.token,
+      },
+    }
+  );
+  if (res.data) {
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ user: res.data.user2, token: res.data.user2.tokens[0] })
+    );
+  }
+  return res.data;
+};
+
+const unfollow = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(
+    API_URL + "/users/unfollow/" + _id,
+    {},
+    {
+      headers: {
+        authorization: user?.token,
+      },
+    }
+  );
+  if (res.data) {
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ user: res.data.user2, token: res.data.user2.tokens[0] })
+    );
+  }
+  return res.data;
+};
+
+const getUsers = async () => {
+  const res = await axios.get(API_URL + "/users");
+  return res.data;
+};
 
 const authService = {
   register,
   login,
   logout,
   getUserById,
+  follow,
+  unfollow,
+  getUsers,
 };
 
 export default authService;

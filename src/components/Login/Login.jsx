@@ -4,6 +4,7 @@ import { login, reset } from "../../features/auth/authSlice";
 import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { notification } from "antd";
+// import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const { user } = useSelector((state) => state.auth);

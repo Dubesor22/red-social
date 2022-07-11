@@ -23,7 +23,7 @@ function Header() {
 
   useEffect(() => {
     dispatch(getUserById(user._id));
-  }, [user]);
+  }, []);
 
   return (
     <>

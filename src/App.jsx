@@ -9,6 +9,7 @@ import Search from "./components/Search/Search";
 import PostDetail from "./components/PostDetail/PostDetail";
 import PostCreate from "./components/PostCreate/PostCreate";
 import PrivateZone from "./guards/PrivateZone";
+import LoginZone from "./guards/LoginZone";
 import Admin from "./components/Admin/Admin";
 import AdminZone from "./guards/AdminZone";
 import NotFound from "./components/NotFound/NotFound";
@@ -22,7 +23,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <LoginZone>
+                <Login />
+              </LoginZone>
+            }
+          />
           <Route path="/feed" element={<Feed />} />
           <Route path="/search/:postName" element={<Search />} />
           <Route path="/post/id/:_id" element={<PostDetail />} />

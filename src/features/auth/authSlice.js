@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   message: "",
+  users: [],
 };
 
 export const register = createAsyncThunk(
@@ -48,7 +49,29 @@ export const getUserById = createAsyncThunk("auth/getUserById", async (id) => {
     console.error(error);
   }
 });
+export const follow = createAsyncThunk("users/follow", async (_id) => {
+  try {
+    return await authService.follow(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
+export const unfollow = createAsyncThunk("users/unfollow", async (_id) => {
+  try {
+    return await authService.unfollow(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+export const getUsers = createAsyncThunk("users/get", async () => {
+  try {
+    return await authService.getUsers();
+  } catch (error) {
+    console.error(error);
+  }
+});
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -87,6 +110,35 @@ export const authSlice = createSlice({
       .addCase(getUserById.rejected, (state, action) => {
         state.isError = true;
         state.message = action.payload;
+      })
+      .addCase(follow.fulfilled, (state, action) => {
+        const users = state.users.map((user) => {
+          if (user._id === action.payload.user._id) {
+            user = action.payload.user;
+          }
+          return user;
+        });
+        state.users = users;
+        state.user = {
+          user: action.payload.user2,
+          token: action.payload.user2.tokens[0],
+        };
+      })
+      .addCase(unfollow.fulfilled, (state, action) => {
+        const users = state.users.map((user) => {
+          if (user._id === action.payload.user._id) {
+            user = action.payload.user;
+          }
+          return user;
+        });
+        state.users = users;
+        state.user = {
+          user: action.payload.user2,
+          token: action.payload.user2.tokens[0],
+        };
+      })
+      .addCase(getUsers.fulfilled, (state, action) => {
+        state.users = action.payload;
       });
   },
 });

@@ -2,13 +2,12 @@ import PostAdmin from "./PostAdmin";
 import { useDispatch, useSelector } from "react-redux";
 import { getAll, reset } from "../../features/posts/PostsSlice";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
+import { Space, Spin } from "antd";
 
 const Admin = () => {
   const { isLoading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const getPostsAndReset = async () => {
     await dispatch(getAll());
@@ -19,8 +18,13 @@ const Admin = () => {
   }, []);
 
   if (isLoading) {
-    return <h1>Cargando posts...</h1>;
+    return (
+      <Space className="spin">
+        <Spin size="large" />
+      </Space>
+    );
   }
+
   return (
     <div>
       <Header />

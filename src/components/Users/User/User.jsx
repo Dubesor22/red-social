@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getUsers, follow, unfollow } from "../../../features/users/usersSlice";
+import { getUsers, follow, unfollow } from "../../../features/auth/authSlice";
 
 const API_URL = "http://localhost:8080/users/";
 
 function User() {
   const dispatch = useDispatch();
-  const { users } = useSelector((state) => state.users);
-  const { user } = useSelector((state) => state.auth);
+  const { user, users } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getUsers());
-  }, [users]);
+  }, []);
 
   const allUsers = users?.map((el) => {
     const isAlreadyFollowed = el.followers?.includes(user?.user?._id);

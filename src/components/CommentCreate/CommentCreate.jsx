@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { commentCreate } from "../../features/comments/commentsSlice";
+import { getAll } from "../../features/posts/PostsSlice";
 import "../PostCreate/PostCreate.scss";
 
-function CommentCreate (props) {
+function CommentCreate(props) {
   const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(body);
     const postData = {
       body,
+      postId: props.postId,
     };
     setLoading(true);
-    dispatch(commentCreate(postData));
+    await dispatch(commentCreate(postData));
+    dispatch(getAll());
     setLoading(false);
-    setBody("")
+    setBody("");
   };
 
-  
   return (
     <>
       <form onSubmit={handleSubmit} className="panel-activity__status">
@@ -42,4 +44,4 @@ function CommentCreate (props) {
   );
 }
 
-export default CommentCreate; ;
+export default CommentCreate;

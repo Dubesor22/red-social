@@ -30,7 +30,7 @@ Link p {
   background-color: #fff;
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
 }
 
 .profile-cover__action {
@@ -147,7 +147,7 @@ Link p {
   background-color: #fff;
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
 }
 
 .search-box {
@@ -159,11 +159,11 @@ Link p {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #393939;
   padding: 10px 20px;
   border-width: 0;
@@ -274,7 +274,7 @@ Link p {
   border-width: 0;
   border-radius: 4px 0 0 4px;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
   -webkit-transform: none !important;
   transform: none !important;
   z-index: 1001;
@@ -509,7 +509,7 @@ button.btn-link {
   flex-basis: 0;
   -ms-flex-positive: 1;
   -webkit-box-flex: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   max-width: 100%;
 }
 
@@ -541,7 +541,7 @@ ul:last-child {
   font-weight: 900;
 }
 
-.activity__list__header img {
+.__list__header img {
   position: absolute;
   top: 0;
   left: 0;
@@ -723,8 +723,10 @@ li.list-group-item:first-child {
   -webkit-transition: opacity 0.25s linear, -webkit-transform 0.25s linear;
   transition: opacity 0.25s linear, -webkit-transform 0.25s linear;
   transition: opacity 0.25s linear, transform 0.25s linear;
-  transition: opacity 0.25s linear, transform 0.25s linear, -webkit-transform 0.25s linear;
-  transition: opacity 0.25s linear, transform 0.25s linear, -webkit-transform 0.25s linear;
+  transition: opacity 0.25s linear, transform 0.25s linear,
+    -webkit-transform 0.25s linear;
+  transition: opacity 0.25s linear, transform 0.25s linear,
+    -webkit-transform 0.25s linear;
 }
 
 .todo--input:checked + .todo--text:after {

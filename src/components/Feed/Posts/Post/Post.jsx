@@ -54,7 +54,16 @@ const Post = () => {
               </div>
             </blockquote>
             <p className="comment-section">Commentarios:</p>
-            <i className="comment-body">{post.comments?.body}</i>
+            <i className="comment-body">
+              {post.comments.map((comment) => (
+                <div className="activity__list__header">
+                  <p>
+                    <img src={API_URL + comment.userId.avatar}></img>
+                    {comment.body}
+                  </p>
+                </div>
+              ))}
+            </i>
           </div>
           <div className="activity__list__footer">
             <span className="like">
@@ -88,9 +97,9 @@ const Post = () => {
               {post.createdAt.slice(0, 10)}
             </span>
           </div>
+          <p></p>
         </li>
-        <p></p>
-        <CommentCreate />
+        <CommentCreate postId={post._id} />
         <hr />
       </>
     );

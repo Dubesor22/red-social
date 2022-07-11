@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
-import { logout } from "../../features/auth/authSlice";
-import { notification, Sider, Layout, Content } from "antd";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Feed.scss";
 import Header from "../Header/Header";
 import Posts from "./Posts/Posts";
@@ -10,9 +7,9 @@ import PostCreate from "../PostCreate/PostCreate";
 import Users from "../Users/Users";
 
 const Feed = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth.user);
+  // const { user } = useSelector((state) => state.auth.user);
   const [text, setText] = useState("");
 
   // console.log(user);
