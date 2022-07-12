@@ -32,7 +32,7 @@ const Post = () => {
   };
 
   const postList = posts?.map((post) => {
-    const isAlreadyLiked = post.likes?.includes(user?.user._id);
+    const isAlreadyLiked = post.likes?.includes(user?.user?._id);
 
     return (
       <>
@@ -107,7 +107,7 @@ const Post = () => {
               {post.comments?.length}
             </span>
             <EditOutlined onClick={() => handleModal(post._id)} />{" "}
-            {user.user.username === post.userId.username ? (
+            {user?.user?.username === post.userId.username ? (
               <span>
                 <i
                   onClick={() => dispatch(deletePost(post._id))}

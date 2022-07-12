@@ -9,10 +9,10 @@ const API_URL = "https://stratos-backend.herokuapp.com/users/";
 function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth.user);
+  const { user } = useSelector((state) => state.auth);
 
-  const onLogout = () => {
-    dispatch(logout());
+  const onLogout = async () => {
+    await dispatch(logout());
     notification.success({ message: "Hasta la proxima!" });
     navigate("/login");
   };
@@ -22,7 +22,7 @@ function Header() {
   };
 
   useEffect(() => {
-    dispatch(getUserById(user._id));
+    dispatch(getUserById(user?.user?._id));
   }, []);
 
   return (
@@ -32,15 +32,15 @@ function Header() {
           <div className="panel profile-cover">
             <Link to="/profile">
               <div className="profile-cover__img">
-                <img src={API_URL + user.avatar} alt="avatar" />
-                <h3 className="h3">{user.username}</h3>
+                <img src={API_URL + user?.user?.avatar} alt="avatar" />
+                <h3 className="h3">{user?.user?.username}</h3>
               </div>
             </Link>
             <div className="profile-cover__action bg--img" data-overlay="0.3">
               <button onClick={goHome} className="btn btn-rounded btn-info">
                 Home
               </button>
-              {user.role === "admin" ? (
+              {user?.user?.role === "admin" ? (
                 <button
                   onClick={() => navigate("/admin")}
                   className="btn btn-rounded btn-info"
@@ -62,13 +62,13 @@ function Header() {
             <div className="profile-cover__info">
               <ul className="nav">
                 <li>
-                  <strong>{user.postIds.length}</strong>Posts
+                  <strong>{user?.user?.postIds.length}</strong>Posts
                 </li>
                 <li>
-                  <strong>{user.followers.length}</strong>Seguidores
+                  <strong>{user?.user?.followers.length}</strong>Seguidores
                 </li>
                 <li>
-                  <strong>{user?.following.length} </strong>Siguiendo
+                  <strong>{user?.user?.following.length} </strong>Siguiendo
                 </li>
               </ul>
             </div>
