@@ -18,7 +18,7 @@ import EditModal from "./EditModal";
 import CommentCreate from "../../../CommentCreate/CommentCreate";
 import "./Post.scss";
 
-const API_URL = "http://localhost:8080/users/";
+const API_URL = "https://stratos-backend.herokuapp.com/users/";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);

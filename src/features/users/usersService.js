@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://stratos-backend.herokuapp.com";
 
 const getUsersByName = async (name) => {
   const res = await axios.get(API_URL + "/users/searchByName/" + name);

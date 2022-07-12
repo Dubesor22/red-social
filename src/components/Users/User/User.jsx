@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getUsers, follow, unfollow } from "../../../features/auth/authSlice";
 
-const API_URL = "http://localhost:8080/users/";
+const API_URL = "https://stratos-backend.herokuapp.com/users/";
 
 function User() {
   const dispatch = useDispatch();

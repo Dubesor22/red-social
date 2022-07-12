@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://stratos-backend.herokuapp.com";
 
 const commentCreate = async (comment) => {
   const user = JSON.parse(localStorage.getItem("user"));

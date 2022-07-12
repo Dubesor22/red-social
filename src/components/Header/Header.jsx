@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { logout, getUserById } from "../../features/auth/authSlice";
 import { notification } from "antd";
 import "../Feed/Feed.scss";
-const API_URL = "http://localhost:8080/users/";
+const API_URL = "https://stratos-backend.herokuapp.com/users/";
 
 function Header() {
   const dispatch = useDispatch();
