@@ -5,14 +5,13 @@ import UserPosts from "./UserPosts/UserPosts";
 import { getUserById } from "../../features/auth/authSlice";
 import Header from "../Header/Header";
 
-
 const Profile = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth.user);
 
   useEffect(() => {
     dispatch(getUserById(user._id));
-  }, [user]);
+  }, []);
   if (!user) {
     return <span>cargando</span>;
   }
