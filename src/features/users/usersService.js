@@ -26,7 +26,6 @@ const deleteUsers = async (_id) => {
 //     },
 //   }
 // );
-// console.log(res.data)
 // return res.data
 // }
 

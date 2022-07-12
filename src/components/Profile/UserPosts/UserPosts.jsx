@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { deletePost } from "../../../features/posts/PostsSlice";
 import "./UserPosts.scss";
 
-
-
 function UserPosts() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth.user);
@@ -18,7 +16,6 @@ function UserPosts() {
     return <span>cargando</span>;
   }
   const userPosts = user.postIds?.map((post) => {
-    console.log(post);
     return (
       <>
         <div className="card" key={post?._id}>

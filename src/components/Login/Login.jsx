@@ -47,13 +47,6 @@ const Login = () => {
     dispatch(reset());
   }, [isError, isSuccess, message]);
 
-  // useEffect(() => {
-  //   if (user) {
-  //     console.log("user is already logged in");
-  //     navigate("/feed");
-  //   }
-  // }, []);
-
   return (
     <div className="outside">
       <div className="wrapper">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@ant-design/icons";
 import EditModal from "./EditModal";
 import CommentCreate from "../../../CommentCreate/CommentCreate";
+import "./Post.scss";
 
 const API_URL = "http://localhost:8080/users/";
 
@@ -30,15 +31,16 @@ const Post = () => {
     setIsModalVisible(true);
   };
 
-  const post = posts?.map((post) => {
+  const postList = posts?.map((post) => {
     const isAlreadyLiked = post.likes?.includes(user?.user._id);
+
     return (
       <>
         <li>
           <i className="activity__list__icon fa fa-question-circle-o"></i>
           <div className="activity__list__header">
             <Link to="/profile">
-              <img src={API_URL + post.userId.avatar} alt="avatar" />
+              <img src={API_URL + post.userId?.avatar} alt="avatar" />
             </Link>
             <a href="#">{post.userId?.username}</a> Ha posteado:{" "}
             <div className="post" key={post._id}>
@@ -53,17 +55,41 @@ const Post = () => {
                 </Link>
               </div>
             </blockquote>
-            <p className="comment-section">Commentarios:</p>
-            <i className="comment-body">
-              {post.comments.map((comment) => (
-                <div className="activity__list__header">
-                  <p>
-                    <img src={API_URL + comment.userId.avatar}></img>
-                    {comment.body}
-                  </p>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    <i>Comentarios:</i>
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="flush-headingOne"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  {" "}
+                  {post.comments.map((comment) => (
+                    <div class="accordion-body">
+                      <div className="activity__list__header">
+                        <p>
+                          <b>{comment.userId?.username}: </b>
+                          <img src={API_URL + comment.userId?.avatar}></img>
+                          {comment.body}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </i>
+              </div>
+            </div>
           </div>
           <div className="activity__list__footer">
             <span className="like">
@@ -80,17 +106,19 @@ const Post = () => {
               <CommentOutlined />
               {post.comments?.length}
             </span>
-            <EditOutlined onClick={() => handleModal(post._id)} />
-
-            <span>
-              <i
-                onClick={() => dispatch(deletePost(post._id))}
-                className="fa fa-trash"
-              >
-                {" "}
-                <span>Eliminar</span>
-              </i>
-            </span>
+            <EditOutlined onClick={() => handleModal(post._id)} />{" "}
+            {user.user.username === post.userId.username ? (
+              <span>
+                <i
+                  onClick={() => dispatch(deletePost(post._id))}
+                  className="fa fa-trash"
+                >
+                  <span>Eliminar</span>
+                </i>
+              </span>
+            ) : (
+              " "
+            )}
             <span>
               {" "}
               <i className="fa fa-clock"></i>
@@ -98,15 +126,17 @@ const Post = () => {
             </span>
           </div>
           <p></p>
+          <br />
         </li>
         <CommentCreate postId={post._id} />
+        <br />
         <hr />
       </>
     );
   });
   return (
     <div>
-      {post}
+      {postList}
       <EditModal visible={isModalVisible} setVisible={setIsModalVisible} />
     </div>
   );

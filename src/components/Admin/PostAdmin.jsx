@@ -8,7 +8,6 @@ const PostAdmin = () => {
   const dispatch = useDispatch();
 
   const post = posts.map((post) => {
-    console.log(post);
     return (
       <>
         <div className="container bootstrap snippets bootdey">

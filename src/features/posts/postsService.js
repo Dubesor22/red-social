@@ -4,7 +4,7 @@ const API_URL = "http://localhost:8080";
 
 const getAll = async () => {
   const res = await axios.get(API_URL + "/posts");
-  return res.data;
+  return res.data.reverse();
 };
 
 const getPostByName = async (postTitle) => {
@@ -29,10 +29,10 @@ const postCreate = async (post) => {
   return res.data;
 };
 
-const like = async (_id) => {
+const like = async (id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(
-    API_URL + "/posts/likes/" + _id,
+    API_URL + "/posts/likes/" + id,
     {},
     {
       headers: {
@@ -43,10 +43,10 @@ const like = async (_id) => {
   return res.data;
 };
 
-const dislike = async (_id) => {
+const dislike = async (id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(
-    API_URL + "/posts/removelikes/" + _id,
+    API_URL + "/posts/removelikes/" + id,
     {},
     {
       headers: {
@@ -77,14 +77,12 @@ const deletePostAdmin = async (id) => {
 };
 
 const update = async (post) => {
-  console.log("service", post);
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(API_URL + "/posts/id/" + post._id, post, {
     headers: {
       authorization: user?.token,
     },
   });
-  console.log("soy la vuelta", res.data);
   return res.data;
 };
 

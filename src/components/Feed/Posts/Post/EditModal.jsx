@@ -23,7 +23,6 @@ const EditModal = ({ visible, setVisible }) => {
 
   const onFinish = (values) => {
     const postWithId = { ...values, _id: post._id };
-    console.log(postWithId);
     dispatch(update(postWithId));
     setVisible(false);
   };

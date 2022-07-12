@@ -1,8 +1,17 @@
 .users-list {
-  background-color: #fff;;
+  background-color: #fff;
 }
 
 .user-follow {
-  display: flex ;
+  display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+  .users-list {
+    display: none;
+  }
+  .column {
+    display: flex;
+  }
 }

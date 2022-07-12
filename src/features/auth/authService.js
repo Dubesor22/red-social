@@ -12,7 +12,6 @@ const login = async (userdata) => {
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data));
   }
-  console.log(res.data);
   return res.data;
 };
 

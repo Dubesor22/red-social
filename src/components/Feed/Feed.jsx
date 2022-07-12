@@ -7,12 +7,10 @@ import PostCreate from "../PostCreate/PostCreate";
 import Users from "../Users/Users";
 
 const Feed = () => {
-  // const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { user } = useSelector((state) => state.auth.user);
+
   const [text, setText] = useState("");
 
-  // console.log(user);
   const handleChange = (e) => {
     setText(e.target.value);
     if (e.key === "Enter") {
@@ -26,7 +24,7 @@ const Feed = () => {
       <div className="container-fluid outside column">
         <Users />
         <div class="col-12">
-          <div className="col-lg-12 container">
+          <div className="col-lg-12 container feed-list">
             <div className="panel">
               <div className="panel-heading">
                 <h3 className="panel-title">Actividad</h3>

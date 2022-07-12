@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <>
-      <div className="container outside">
+      <div className="container">
         <div className="col-lg-8 container-fluid">
           <div className="panel profile-cover">
             <Link to="/profile">

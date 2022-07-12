@@ -13,7 +13,6 @@ function PostCreate() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, body, image);
     const postData = {
       title,
       body,
@@ -27,7 +26,6 @@ function PostCreate() {
     setImage("");
   };
 
-  
   return (
     <>
       <form onSubmit={handleSubmit} className="panel-activity__status">

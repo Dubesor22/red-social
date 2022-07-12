@@ -6,13 +6,11 @@ import "../PostCreate/PostCreate.scss";
 
 function CommentCreate(props) {
   const [body, setBody] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(body);
     const postData = {
       body,
       postId: props.postId,
