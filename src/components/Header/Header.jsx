@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <>
-      <div className="container">
+      <div className="container-fluid">
         <div className="col-lg-8 container-fluid">
           <div className="panel profile-cover">
             <Link to="/profile">
@@ -36,28 +36,31 @@ function Header() {
                 <h3 className="h3">{user?.user?.username}</h3>
               </div>
             </Link>
+
             <div className="profile-cover__action bg--img" data-overlay="0.3">
-              <button onClick={goHome} className="btn btn-rounded btn-info">
-                Home
-              </button>
-              {user?.user?.role === "admin" ? (
-                <button
-                  onClick={() => navigate("/admin")}
-                  className="btn btn-rounded btn-info"
-                >
-                  <span>Admin Pannel</span>
+              <div className="button-box">
+                <button onClick={goHome} className="btn btn-rounded btn-info">
+                  Home
                 </button>
-              ) : (
-                <button
-                  onClick={() => navigate("/profile")}
-                  className="btn btn-rounded btn-info"
-                >
-                  <span>Profile</span>
+                {user?.user?.role === "admin" ? (
+                  <button
+                    onClick={() => navigate("/admin")}
+                    className="btn btn-rounded btn-info"
+                  >
+                    Admin
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => navigate("/profile")}
+                    className="btn btn-rounded btn-info"
+                  >
+                    Perfil
+                  </button>
+                )}
+                <button onClick={onLogout} className="btn btn-rounded btn-info">
+                  Salir
                 </button>
-              )}
-              <button onClick={onLogout} className="btn btn-rounded btn-info">
-                Salir
-              </button>
+              </div>
             </div>
             <div className="profile-cover__info">
               <ul className="nav">

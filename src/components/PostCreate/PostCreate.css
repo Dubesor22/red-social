@@ -130,7 +130,7 @@ button.btn-link {
   flex-basis: 0;
   -ms-flex-positive: 1;
   -webkit-box-flex: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   max-width: 100%;
 }
 
@@ -175,7 +175,7 @@ ul:last-child {
   font-weight: 600;
 }
 
-.activity__list__footer {
+/* .activity__list__footer {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -184,5 +184,4 @@ ul:last-child {
   padding: 13px 8px 0;
   color: #999;
   border-top: 1px dotted #ccc;
-}
-/*# sourceMappingURL=PostCreate.css.map */
+} */

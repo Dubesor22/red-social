@@ -65,13 +65,24 @@ Link {
   -webkit-box-pack: end;
   justify-content: flex-end;
   overflow: hidden;
-  background: url(https://bootdey.com/img/Content/bg1.jpg) no-repeat;
+  background: url(https://png.pngtree.com/thumb_back/fh260/background/20200630/pngtree-blueprint-digital-paper-background-design-super-high-resolution-image_340503.jpg)
+    no-repeat;
   background-size: cover;
 }
 
-.profile-cover__action > .btn {
-  margin-left: 10px;
-  margin-bottom: 10px;
+.button-box {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 640px) {
+  .button-box {
+    flex-direction: column;
+    width: 60%;
+  }
 }
 
 .profile-cover__img {
@@ -551,49 +562,63 @@ ul:last-child {
   font-weight: 900;
 }
 
-.activity__list__header img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 35px;
-  border-radius: 50%;
-}
-
-.activity__list__header a {
-  color: #222;
-  font-weight: 600;
-}
-
 .activity__list__footer {
-  display: -ms-flexbox;
-  display: -webkit-box;
   display: flex;
-  margin-top: 23px;
-  margin-left: 43px;
-  padding: 13px 8px 0;
-  color: #999;
-  border-top: 1px dotted #ccc;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.activity__list__footer a {
-  color: inherit;
+@media (max-width: 640px) {
+  .date-container {
+    display: none;
+  }
 }
 
-.activity__list__footer a + a {
-  margin-left: 15px;
-}
+// .activity__list__header img {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   max-width: 35px;
+//   border-radius: 50%;
+// }
 
-.activity__list__footer i {
-  margin-right: 8px;
-}
+// .activity__list__header a {
+//   color: #222;
+//   font-weight: 600;
+// }
 
-.activity__list__footer a:hover {
-  color: #222;
-}
+// .activity__list__footer {
+//   display: -ms-flexbox;
+//   display: -webkit-box;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-top: 23px;
+//   margin-left: 43px;
+//   padding: 13px 8px 0;
+//   color: #999;
+//   border-top: 1px dotted #ccc;
+// }
 
-.activity__list__footer span {
-  margin-left: auto;
-}
+// .activity__list__footer a {
+//   color: inherit;
+// }
+
+// .activity__list__footer a + a {
+//   margin-left: 15px;
+// }
+
+// .activity__list__footer i {
+//   margin-right: 8px;
+// }
+
+// .activity__list__footer a:hover {
+//   color: #222;
+// }
+
+// .activity__list__footer span {
+//   margin-left: auto;
+// }
 
 .panel-activity__list > li + li {
   margin-top: 51px;

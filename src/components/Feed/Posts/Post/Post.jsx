@@ -91,39 +91,47 @@ const Post = () => {
               </div>
             </div>
           </div>
-          <div className="activity__list__footer">
-            <span className="like">
-              {" "}
-              {post.likes?.length}{" "}
-              {isAlreadyLiked ? (
-                <HeartFilled onClick={() => dispatch(dislike(post._id))} />
-              ) : (
-                <HeartOutlined onClick={() => dispatch(like(post._id))} />
-              )}
-            </span>
-            <span>
-              {" "}
-              <CommentOutlined />
-              {post.comments?.length}
-            </span>
-            <EditOutlined onClick={() => handleModal(post._id)} />{" "}
-            {user?.user?.username === post.userId.username ? (
+          <hr />
+          <div className="container activity__list__footer">
+            <div className="container container-likes">
+              <span className="like">
+                {post.likes?.length}{" "}
+                {isAlreadyLiked ? (
+                  <HeartFilled onClick={() => dispatch(dislike(post._id))} />
+                ) : (
+                  <HeartOutlined onClick={() => dispatch(like(post._id))} />
+                )}
+              </span>
+            </div>
+            <div className="container container-comments-length">
               <span>
+                <CommentOutlined />
+                {post.comments?.length}
+              </span>
+            </div>
+            <div className="container container-edit">
+              <EditOutlined onClick={() => handleModal(post._id)} />{" "}
+            </div>
+
+            <div className="container container-delete">
+              {user?.user?.username === post.userId.username ? (
                 <i
                   onClick={() => dispatch(deletePost(post._id))}
                   className="fa fa-trash"
                 >
                   <span>Eliminar</span>
                 </i>
+              ) : (
+                " "
+              )}
+            </div>
+            <div className="container date-container">
+              <span>
+                {" "}
+                <i className="fa fa-clock"></i>
+                {post.createdAt.slice(0, 10)}
               </span>
-            ) : (
-              " "
-            )}
-            <span>
-              {" "}
-              <i className="fa fa-clock"></i>
-              {post.createdAt.slice(0, 10)}
-            </span>
+            </div>
           </div>
           <p></p>
           <br />
