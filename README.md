@@ -2,15 +2,15 @@
 
 Stratos is a fully-featured social media web application, built with the MERN stack.
 
-[![Stratos.gif](https://i.postimg.cc/8zQ68NYW/Stratos.gif)](https://postimg.cc/LnDXLK26)
+![Stratos.gif](https://i.postimg.cc/8zQ68NYW/Stratos.gif)
 
 ## Description
 
 A proyect from the Bridge Tech Academy.
 
-![link to the required topics](https://docs.google.com/document/d/1s5IuLkO-3MIiZgEr53JkeZJXWtbL4j2IHYmA1Q0gJmM/edit)
+[link to the required topics](https://docs.google.com/document/d/1s5IuLkO-3MIiZgEr53JkeZJXWtbL4j2IHYmA1Q0gJmM/edit)
 
-[mern.jpg](https://postimg.cc/vD9H865p)
+[![mern.jpg](https://i.postimg.cc/SQ1Xr6RN/mern.jpg)](https://postimg.cc/vD9H865p)
 
 ## Deploy
 
