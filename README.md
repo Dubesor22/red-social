@@ -2,9 +2,19 @@
 
 Stratos is a fully-featured social media web application, built with the MERN stack.
 
-Deployed at: https://stratos-backend.herokuapp.com/
-
 [![Stratos.gif](https://i.postimg.cc/8zQ68NYW/Stratos.gif)](https://postimg.cc/LnDXLK26)
+
+## Description
+
+A proyect from the Bridge Tech Academy.
+
+![link to the required topics](https://docs.google.com/document/d/1s5IuLkO-3MIiZgEr53JkeZJXWtbL4j2IHYmA1Q0gJmM/edit)
+
+[mern.jpg](https://postimg.cc/vD9H865p)
+
+## Deploy
+
+Deployed at: https://stratos-backend.herokuapp.com/
 
 ## Features
 
@@ -83,17 +93,9 @@ npm start
 
 [![detail.jpg](https://i.postimg.cc/BZ892msZ/detail.jpg)](https://postimg.cc/nMtPJYCN)
 
-### Nested comments
-
-![image](https://user-images.githubusercontent.com/76620777/170822065-64622f43-5f70-48c2-9503-0e1b80575fd2.png)
-
 ### Profile view
 
-![image](https://user-images.githubusercontent.com/76620777/170822076-18741eef-ba2b-4750-b468-e7e9561a6a71.png)
-
-### Search view
-
-![image](https://user-images.githubusercontent.com/76620777/170821986-49d2a93a-5486-47fc-885e-37c0d3f628f3.png)
+[![profile.jpg](https://i.postimg.cc/BnkcVWvb/profile.jpg)](https://postimg.cc/RW1HWDKx)
 
 ### Testing
 
