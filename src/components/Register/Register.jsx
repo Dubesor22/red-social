@@ -51,7 +51,9 @@ const Register = () => {
         message: "Success",
         description: "You have successfully registered",
       });
-      // navigate("/login");
+      setTimeout(function () {
+        navigate("/login");
+      }, 1000);
     }
   };
   return (

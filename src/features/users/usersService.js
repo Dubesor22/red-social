@@ -17,18 +17,6 @@ const deleteUsers = async (_id) => {
   return res.data;
 };
 
-// const updateUsers = async (data) => {
-//   const user = JSON.parse(localStorage.getItem("user"));
-//   const res = await axios.put(API_URL + "/users/" , data,
-//   {
-//     headers: {
-//       authorization: user?.token,
-//     },
-//   }
-// );
-// return res.data
-// }
-
 const getUsersById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.get(API_URL + "/users/id/" + _id, {
@@ -42,7 +30,6 @@ const getUsersById = async (_id) => {
 const usersService = {
   getUsersByName,
   deleteUsers,
-  // updateUsers,
   getUsersById,
 };
 

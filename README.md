@@ -70,13 +70,18 @@ npm start
 
 ## Screenshots
 
+### Resgister / Login
+
+![image](https://i.postimg.cc/9XqryVJg/register.jpg)
+![image](https://i.postimg.cc/qMsqZwf8/login.jpg)
+
 ### Explore view
 
 [![imagen-feed.jpg](https://i.postimg.cc/25jdJCqG/imagen-feed.jpg)](https://postimg.cc/VJTb0QW0)
 
 ### Post view
 
-![image](https://user-images.githubusercontent.com/76620777/170822055-ac686a28-7d5b-4d44-b8d3-a028521534d8.png)
+[![detail.jpg](https://i.postimg.cc/BZ892msZ/detail.jpg)](https://postimg.cc/nMtPJYCN)
 
 ### Nested comments
 
@@ -86,10 +91,10 @@ npm start
 
 ![image](https://user-images.githubusercontent.com/76620777/170822076-18741eef-ba2b-4750-b468-e7e9561a6a71.png)
 
-### Real-time private messenger
-
-![image](https://user-images.githubusercontent.com/76620777/170822084-89a9d3ac-22ed-4a92-ab58-9b0af878e03e.png)
-
 ### Search view
 
 ![image](https://user-images.githubusercontent.com/76620777/170821986-49d2a93a-5486-47fc-885e-37c0d3f628f3.png)
+
+### Testing
+
+[![Test-Selenium.jpg](https://i.postimg.cc/FRY1WQmR/Test-Selenium.jpg)](https://postimg.cc/pht2r4mb)

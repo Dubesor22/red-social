@@ -27,20 +27,11 @@ const Feed = () => {
           <div className="col-lg-12 container feed-list">
             <div className="panel">
               <div className="panel-heading">
-                {/* <div>
-                  <i className="fa fa-search" aria-hidden="true"></i>
-                  <input
-                    className="search-box"
-                    onKeyUp={handleChange}
-                    placeholder="Buscar"
-                    name="text"
-                  />
-                </div> */}
                 <div class="container">
                   <br />
                   <div class="row justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">
-                      <form class="card card-sm">
+                      <div class="card card-sm">
                         <div class="card-body row no-gutters align-items-center">
                           <div class="col-auto">
                             <i class="fa fa-search h4 text-body"></i>
@@ -52,17 +43,10 @@ const Feed = () => {
                               onKeyUp={handleChange}
                               placeholder="Buscar..."
                               name="text"
-                              type="search"
                             />
                           </div>
-
-                          <div class="col-auto">
-                            <button class="btn btn-lg btn-info" type="submit">
-                              Search
-                            </button>
-                          </div>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>

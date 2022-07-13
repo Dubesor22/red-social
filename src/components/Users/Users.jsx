@@ -8,7 +8,7 @@ function Users() {
   return (
     <div className="container users-list">
       <br />
-      <h2>usuarios</h2>
+      <h2>Nuestros usuarios</h2>
       <hr />
       <br />
       <ul>

@@ -10,7 +10,6 @@ import {
 import {
   HeartOutlined,
   HeartFilled,
-  // DeleteOutlined,
   CommentOutlined,
   EditOutlined,
 } from "@ant-design/icons";
