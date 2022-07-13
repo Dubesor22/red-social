@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { notification } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { register, reset } from "../../features/auth/authSlice";
 
 const Register = () => {
@@ -14,7 +14,7 @@ const Register = () => {
   const { username, email, password, password2 } = formData;
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const { isSuccess, message, isError } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -47,10 +47,11 @@ const Register = () => {
       });
     } else {
       dispatch(register(formData));
-      // notification.success({
-      //   message: "Success",
-      //   description: "You have successfully registered",
-      // });
+      notification.success({
+        message: "Success",
+        description: "You have successfully registered",
+      });
+      // navigate("/login");
     }
   };
   return (

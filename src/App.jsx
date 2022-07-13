@@ -31,11 +31,25 @@ function App() {
               </LoginZone>
             }
           />
-          <Route path="/feed" element={<Feed />} />
+          <Route
+            path="/feed"
+            element={
+              <PrivateZone>
+                <Feed />
+              </PrivateZone>
+            }
+          />
           <Route path="/search/:postName" element={<Search />} />
           <Route path="/post/id/:_id" element={<PostDetail />} />
           <Route path="/post/create" element={<PostCreate />} />
-          <Route path="/header" element={<Header />} />
+          <Route
+            path="/header"
+            element={
+              <PrivateZone>
+                <Header />
+              </PrivateZone>
+            }
+          />
           <Route
             path="/profile"
             element={
@@ -48,7 +62,8 @@ function App() {
             path="/admin"
             element={
               <AdminZone>
-                <Admin />
+                {" "}
+                <Admin />{" "}
               </AdminZone>
             }
           />

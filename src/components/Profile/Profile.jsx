@@ -9,6 +9,8 @@ const Profile = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth.user);
 
+  console.log(user);
+
   useEffect(() => {
     dispatch(getUserById(user._id));
   }, []);
@@ -27,7 +29,9 @@ const Profile = () => {
               </div>
               <div className="panel-body">
                 <div className="form-group">
-                  <label className="col-sm-2 control-label">Username</label>
+                  <label className="col-sm-2 control-label">
+                    Nombre de usuario:
+                  </label>
                   <div className="col-sm-10">
                     <input
                       value={user.username}
@@ -37,9 +41,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-sm-2 control-label">
-                    E-mail address
-                  </label>
+                  <label className="col-sm-2 control-label">email:</label>
                   <div className="col-sm-10">
                     <input
                       value={user.email}
@@ -48,49 +50,47 @@ const Profile = () => {
                     />
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">Work address</label>
-                  <div className="col-sm-10">
-                    <textarea rows="3" className="form-control"></textarea>
-                  </div>
+                <br />
+                <div className="container d-flex justify-content-start gap-5 form-group">
+                  <label className="col-sm-2 control-label">
+                    Cuantos Posts te Han gustado:{" "}
+                  </label>
+                  <p className="numberCircle col-sm-10">
+                    {user.wishList.length}
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h4 className="panel-title">Security</h4>
+                <h4 className="panel-title">Seguridad</h4>
               </div>
               <div className="panel-body">
                 <div className="form-group">
                   <label className="col-sm-2 control-label">
-                    Current password
+                    Password actual
                   </label>
                   <div className="col-sm-10">
                     <input type="password" className="form-control" />
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="col-sm-2 control-label">New password</label>
+                  <label className="col-sm-2 control-label">
+                    Nuevo password
+                  </label>
                   <div className="col-sm-10">
                     <input type="password" className="form-control" />
                   </div>
                 </div>
-                <div className="form-group">
-                  <div className="col-sm-10 col-sm-offset-2">
-                    <div className="checkbox">
-                      <input type="checkbox" id="checkbox_1" />
-                      <label for="checkbox_1">Make this account public</label>
-                    </div>
-                  </div>
-                </div>
+                <br />
                 <div className="form-group">
                   <div className="col-sm-10 col-sm-offset-2">
                     <button type="submit" className="btn btn-primary">
-                      Submit
+                      Enviar
                     </button>
                     <button type="reset" className="btn btn-default">
-                      Cancel
+                      Volver
                     </button>
                   </div>
                 </div>

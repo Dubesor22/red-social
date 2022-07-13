@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getById } from "../../features/posts/PostsSlice";
 import { logout } from "../../features/auth/authSlice";
 import { Card } from "antd";
+import Header from "../Header/Header";
 import "./PostDetail.scss";
 
 const API_URL = "https://stratos-backend.herokuapp.com/users/";
@@ -26,40 +27,8 @@ const PostDetail = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="col-lg-8 container-fluid">
-          <div className="panel profile-cover">
-            <Link to="/profile">
-              <div className="profile-cover__img">
-                <img src={API_URL + user.avatar} alt="avatar" />
-                <h3 className="h3">{user.username}</h3>
-              </div>
-            </Link>
-            <div className="profile-cover__action bg--img" data-overlay="0.3">
-              <button className="btn btn-rounded btn-info">
-                <i className="fa fa-plus"></i>
-                <span>Seguir</span>
-              </button>
-              <button className="btn btn-rounded btn-info">
-                <span onClick={onLogout}>Salir</span>
-              </button>
-            </div>
-            <div className="profile-cover__info">
-              <ul className="nav">
-                <li>
-                  <strong>{user.postIds.length}</strong>Posts
-                </li>
-                <li>
-                  <strong>{user.followers.length}</strong>Seguidores
-                </li>
-                <li>
-                  <strong>0</strong>Siguiendo
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Header />
+
       <Card title="Card title" className="post-card">
         <Card type="inner" title={post.title}>
           {post.body}
